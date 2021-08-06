@@ -20,7 +20,10 @@ export class EditorComponent {
 
     public editorOptions = {
         theme: 'vs-dark',
-        language: 'javascript'
+        language: 'javascript',
+        minimap: {
+            enabled: false
+        }
     };
 
     public code: string = '';

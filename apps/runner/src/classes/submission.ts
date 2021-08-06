@@ -1,7 +1,7 @@
 import { Profile } from '@cleavera/benchmark';
+import { TestCaseInterface, SubmissionInterface } from '@hdc/submission';
 import { Script } from 'vm';
-import { CaseInterface } from '../interfaces/case.interface';
-import { SubmissionInterface } from '../interfaces/submission.interface';
+
 import { Execution } from './execution';
 import { Sandbox } from './sandbox';
 import { ScriptFactory } from './script.factory';
@@ -50,7 +50,7 @@ export class Submission {
     }
 
     public validate(): Promise<Array<Execution>> {
-        return Promise.all(this.submission.tests.map((testCase: CaseInterface): Promise<Execution> => {
+        return Promise.all(this.submission.tests.map((testCase: TestCaseInterface): Promise<Execution> => {
             const script: string = `
                 ${this.submission.submission}
 
@@ -66,7 +66,7 @@ export class Submission {
     }
 
     public async memory(): Promise<Execution> {
-        const testCase: CaseInterface = this.submission.memory;
+        const testCase: TestCaseInterface = this.submission.memory;
 
         const script: string = `
             ${this.submission.submission}
@@ -77,7 +77,7 @@ export class Submission {
         const runs: Array<Execution> = [];
 
         for (let x = 0; x < 10; x++) {
-            runs.push(await this._execute(script))
+            runs.push(await this._execute(script));
         }
 
         runs.sort((a: Execution, b: Execution) => {
@@ -90,13 +90,13 @@ export class Submission {
             }
 
             return 0;
-        })
+        });
 
         return runs[4];
     }
 
     public performance(): Promise<Execution> {
-        const testCase: CaseInterface = this.submission.performance;
+        const testCase: TestCaseInterface = this.submission.performance;
 
         const script: string = `
             ${this.submission.submission}

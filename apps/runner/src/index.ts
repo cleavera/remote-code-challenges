@@ -1,11 +1,10 @@
 import { AzureFunction, Context as AzureContext, HttpRequest } from '@azure/functions';
-import { Profile } from '@cleavera/benchmark';
+import { SubmissionInterface } from '@hdc/submission';
+
 import { Content } from './classes/content';
 import { Execution } from './classes/execution';
-
 import { Response } from './classes/response';
 import { Submission } from './classes/submission';
-import { SubmissionInterface } from './interfaces/submission.interface';
 
 const httpTrigger: AzureFunction = async(azureContext: AzureContext, req: HttpRequest): Promise<void> => {
     const content: Content = Content.FromRequest(req);

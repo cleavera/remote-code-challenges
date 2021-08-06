@@ -1,0 +1,9 @@
+.messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.error {
+    background: #d77;
+}

@@ -1,4 +1,4 @@
-import { TestCaseInterface } from '../../challenge';
+import { TestCaseInterface } from './test-case.interface';
 
 export interface SubmissionInterface {
     submission: string;

@@ -1,4 +1,5 @@
 import { Profile } from '@cleavera/benchmark';
+import { ResultInterface } from '@hdc/submission';
 
 export class Execution {
     public messages: Array<string>;
@@ -38,10 +39,10 @@ export class Execution {
         this.memory = memory;
     }
 
-    public serialise(): unknown {
+    public serialise(): ResultInterface {
         return {
             memory: this.memory,
-            performance: this.performance.best?.toString(10),
+            performance: this.performance.best?.toString(10) ?? '',
             messages: this.messages,
             errors: this.errors.map((error: Error) => {
                return error.message;

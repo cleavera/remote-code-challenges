@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
+import { ResultInterface } from '@hdc/submission';
+import { Observable, Subject } from 'rxjs';
+
 import { ChallengeInterface } from '../../challenge';
-import { SubmissionInterface } from '../interfaces/submission.interface';
+import { SubmissionFactory } from './submission.factory';
 
 @Injectable()
 export class SubmitService {
-    public async send(submission: string, challenge: ChallengeInterface): Promise<void> {
+    private _submissionFactory: SubmissionFactory;
+
+    constructor(submissionFactory: SubmissionFactory) {
+        this._submissionFactory = submissionFactory;
+    }
+
+    public async send(submission: string, challenge: ChallengeInterface): Promise<ResultInterface> {
         const request: Response = await fetch('http://localhost:7071/api/SubmissionRunner', {
             method: 'POST',
-            body: JSON.stringify({
-                submission,
-                tests: challenge.validation,
-                performance: challenge.performance,
-                memory: challenge.memory
-            } as SubmissionInterface)
+            body: JSON.stringify(this._submissionFactory.create(submission, challenge))
         });
 
-        console.log(await request.json());
+        return request.json();
     }
 }

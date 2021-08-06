@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { ResultInterface } from '@hdc/submission';
+
 import { SubmitService } from '../../../submission';
 import { MISSING_NUMBERS_CHALLENGE } from '../../constants/1 - missing-numbers.challenge';
+import { ChallengeInterface } from '../../interfaces/challenge.interface';
 
 @Component({
     selector: 'challenge-challenge',
@@ -8,7 +11,9 @@ import { MISSING_NUMBERS_CHALLENGE } from '../../constants/1 - missing-numbers.c
     templateUrl: './challenge.component.html'
 })
 export class ChallengeComponent {
+    public challenge: ChallengeInterface = MISSING_NUMBERS_CHALLENGE;
     public value: string;
+    public result!: ResultInterface;
     private _submitService: SubmitService;
 
     constructor(submitService: SubmitService) {
@@ -21,7 +26,7 @@ export class ChallengeComponent {
         this.value = value;
     }
 
-    public onSubmit(): void {
-        this._submitService.send(this.value, MISSING_NUMBERS_CHALLENGE);
+    public async onSubmit(): Promise<void> {
+        this.result = await this._submitService.send(this.value, this.challenge);
     }
 }
