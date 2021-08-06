@@ -21,7 +21,14 @@ const httpTrigger: AzureFunction = async(azureContext: AzureContext, req: HttpRe
         results.error(...validation.errors);
     });
 
-    results.error(...memory.errors, ...performance.errors);
+    if (memory.errors.length > 0) {
+        results.error(...memory.errors);
+    }
+
+    if (performance.errors.length) {
+        results.error(performance.errors[0]);
+    }
+
     results.setMemory(memory.memory);
     results.performance = performance.performance;
 

@@ -56,7 +56,7 @@ export class Submission {
     }
 
     private async _execute(scriptContent: string): Promise<Execution> {
-        const execution: Execution = new Execution(new Profile('Run'));
+        const execution: Execution = new Execution(new Profile('Run', null, 1e5));
 
         let script: Script;
 

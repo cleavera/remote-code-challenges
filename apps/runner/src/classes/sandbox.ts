@@ -1,4 +1,3 @@
-import { Profile } from '@cleavera/benchmark';
 import { getHeapStatistics, HeapInfo } from 'v8';
 import { Context, createContext, Script } from 'vm';
 import { Execution } from './execution';
