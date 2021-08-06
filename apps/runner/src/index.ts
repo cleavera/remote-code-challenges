@@ -11,26 +11,7 @@ const httpTrigger: AzureFunction = async(azureContext: AzureContext, req: HttpRe
     const content: Content = Content.FromRequest(req);
     const response: Response = Response.FromContext(azureContext);
     const submission = new Submission(content.json<SubmissionInterface>());
-    const validations: Array<Execution> = await submission.validate();
-    const memory: Execution = await submission.memory();
-    const performance: Execution = await submission.performance();
-    const results = new Execution(new Profile(''));
-
-    validations.map((validation: Execution) => {
-        results.message(...validation.messages);
-        results.error(...validation.errors);
-    });
-
-    if (memory.errors.length > 0) {
-        results.error(...memory.errors);
-    }
-
-    if (performance.errors.length) {
-        results.error(performance.errors[0]);
-    }
-
-    results.setMemory(memory.memory);
-    results.performance = performance.performance;
+    const results: Execution = await submission.run();
 
     response.corsHeader = req.headers.origin as string;
     response.write(JSON.stringify(results.serialise()));

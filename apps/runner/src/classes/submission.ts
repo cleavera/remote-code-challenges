@@ -13,6 +13,42 @@ export class Submission {
         this.submission = submission;
     }
 
+    public async run(): Promise<Execution> {
+        const validations: Array<Execution> = await this.validate();
+        const results = new Execution(new Profile(''));
+
+        validations.map((validation: Execution) => {
+            results.message(...validation.messages);
+            results.error(...validation.errors);
+        });
+
+        if (!results.passed()) {
+            return results;
+        }
+
+        const memory: Execution = await this.memory();
+
+        if (memory.errors.length > 0) {
+            results.error(...memory.errors);
+
+            return results;
+        }
+
+        results.setMemory(memory.memory);
+
+        const performance: Execution = await this.performance();
+
+        if (performance.errors.length) {
+            results.error(performance.errors[0]);
+
+            return results;
+        }
+
+        results.performance = performance.performance;
+
+        return results;
+    }
+
     public validate(): Promise<Array<Execution>> {
         return Promise.all(this.submission.tests.map((testCase: CaseInterface): Promise<Execution> => {
             const script: string = `
