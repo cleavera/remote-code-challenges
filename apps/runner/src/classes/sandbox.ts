@@ -21,11 +21,13 @@ export class Sandbox {
     }
 
     private _snapshot(): Promise<number> {
+        const {used_heap_size} = getHeapStatistics();
+
         return new Promise<number>((resolve: (memory: number) => void) => {
             setTimeout(() => {
                 const stats: HeapInfo = getHeapStatistics();
 
-                resolve(stats.used_heap_size);
+                resolve(stats.used_heap_size - used_heap_size);
             });
         });
     }

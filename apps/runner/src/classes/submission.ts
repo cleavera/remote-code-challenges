@@ -65,7 +65,7 @@ export class Submission {
         }));
     }
 
-    public memory(): Promise<Execution> {
+    public async memory(): Promise<Execution> {
         const testCase: CaseInterface = this.submission.memory;
 
         const script: string = `
@@ -74,7 +74,25 @@ export class Submission {
             submission(${testCase.input.map((input: any) => JSON.stringify(input)).join(', ')});
         `;
 
-        return this._execute(script);
+        const runs: Array<Execution> = [];
+
+        for (let x = 0; x < 10; x++) {
+            runs.push(await this._execute(script))
+        }
+
+        runs.sort((a: Execution, b: Execution) => {
+            if (a.memory < b.memory) {
+                return -1;
+            }
+
+            if (a.memory > b.memory) {
+                return 1;
+            }
+
+            return 0;
+        })
+
+        return runs[4];
     }
 
     public performance(): Promise<Execution> {
