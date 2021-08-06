@@ -1,1 +1,2 @@
-<editor-editor class="editor" (editorChange)="onSolutionChange($event)"></editor-editor>
+<editor-editor class="editor" [defaultValue]="value" (editorChange)="onSolutionChange($event)"></editor-editor>
+<button (click)="onSubmit()">Submit</button>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { EditorModule } from '../editor';
+import { SubmissionModule } from '../submission';
 import { ChallengeComponent } from './components/challenge/challenge.component';
 
 @NgModule({
@@ -7,7 +8,8 @@ import { ChallengeComponent } from './components/challenge/challenge.component';
         ChallengeComponent
     ],
     imports: [
-        EditorModule
+        EditorModule,
+        SubmissionModule
     ],
     exports: [
         ChallengeComponent
