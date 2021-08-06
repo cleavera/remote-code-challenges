@@ -1,7 +1,7 @@
 export interface ResultInterface {
-    memory: number;
-    performance: string;
+    memory: number | null;
+    performance: string | null;
+    characters: number | null;
     messages: Array<string>;
     errors: Array<string>;
 }
-

@@ -1,8 +1,8 @@
-import { Profile } from '@cleavera/benchmark';
-import { TestCaseInterface, SubmissionInterface } from '@hdc/submission';
+import { SubmissionInterface, TestCaseInterface } from '@hdc/submission';
 import { Script } from 'vm';
 
 import { Execution } from './execution';
+import { Results } from './results';
 import { Sandbox } from './sandbox';
 import { ScriptFactory } from './script.factory';
 
@@ -13,44 +13,42 @@ export class Submission {
         this.submission = submission;
     }
 
-    public async run(): Promise<Execution> {
-        const validations: Array<Execution> = await this.validate();
-        const results = new Execution(new Profile(''));
+    public async run(): Promise<Results> {
+        const results: Results = Results.Create(this.submission);
+        const validation: Execution = await this.validate();
+        results.addExecution(validation);
 
-        validations.map((validation: Execution) => {
-            results.message(...validation.messages);
-            results.error(...validation.errors);
-        });
-
-        if (!results.passed()) {
+        if (!results.passing()) {
             return results;
         }
 
         const memory: Execution = await this.memory();
 
-        if (memory.errors.length > 0) {
-            results.error(...memory.errors);
+        results.addExecution(memory);
 
+        if (!results.passing()) {
             return results;
         }
 
-        results.setMemory(memory.memory);
+        results.addMemory(memory);
 
         const performance: Execution = await this.performance();
 
-        if (performance.errors.length) {
-            results.error(performance.errors[0]);
+        results.addExecution(performance);
 
+        if (!results.passing()) {
             return results;
         }
 
-        results.performance = performance.performance;
+        results.addPerformanceData(performance);
 
         return results;
     }
 
-    public validate(): Promise<Array<Execution>> {
-        return Promise.all(this.submission.tests.map((testCase: TestCaseInterface): Promise<Execution> => {
+    public async validate(): Promise<Execution> {
+        let execution: Execution | null = null;
+
+        for (let testCase of this.submission.tests) {
             const script: string = `
                 ${this.submission.submission}
 
@@ -61,8 +59,18 @@ export class Submission {
                 }
             `;
 
-            return this._execute(script);
-        }));
+            execution = await this._execute(script);
+
+            if (execution.errors.length) {
+                break;
+            }
+        }
+
+        if (execution === null) {
+            throw new Error('No tests were run');
+        }
+
+        return execution;
     }
 
     public async memory(): Promise<Execution> {
@@ -110,7 +118,7 @@ export class Submission {
     }
 
     private async _execute(scriptContent: string): Promise<Execution> {
-        const execution: Execution = new Execution(new Profile('Run', null, 1e5));
+        const execution: Execution = Execution.Create();
 
         let script: Script;
 

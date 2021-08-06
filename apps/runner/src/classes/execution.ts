@@ -7,7 +7,7 @@ export class Execution {
     public memory: number;
     public performance: Profile;
 
-    constructor(performance: Profile) {
+    private constructor(performance: Profile) {
         this.messages = [];
         this.errors = [];
         this.memory = 0;
@@ -39,18 +39,11 @@ export class Execution {
         this.memory = memory;
     }
 
-    public serialise(): ResultInterface {
-        return {
-            memory: this.memory,
-            performance: this.performance.best?.toString(10) ?? '',
-            messages: this.messages,
-            errors: this.errors.map((error: Error) => {
-               return error.message;
-            })
-        };
-    }
-
     public passed(): boolean {
         return this.errors.length === 0;
+    }
+
+    public static Create(): Execution {
+        return new Execution(new Profile('Run', null, 1e5));
     }
 }
