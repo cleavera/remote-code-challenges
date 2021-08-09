@@ -1,4 +1,4 @@
 <editor-editor class="editor" [defaultValue]="value" (editorChange)="onSolutionChange($event)"></editor-editor>
 <button (click)="onSubmit()">Submit</button>
 
-<submission-result [result]="result" *ngIf="result"></submission-result>
+<submission-submission [resultPromise]="result" *ngIf="result"></submission-submission>

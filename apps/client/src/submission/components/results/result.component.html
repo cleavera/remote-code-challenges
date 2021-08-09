@@ -1,20 +1,22 @@
-<ul class="messages">
-    <li class="error" *ngFor="let error of result.errors">
-        {{ error }}
-    </li>
+<div *ngIf="result">
+    <ul class="messages">
+        <li class="error" *ngFor="let error of result.errors">
+            {{ error }}
+        </li>
 
-    <li class="message" *ngFor="let message of result.messages">
-        {{ message }}
-    </li>
-</ul>
+        <li class="message" *ngFor="let message of result.messages">
+            {{ message }}
+        </li>
+    </ul>
 
-<dl class="stats">
-    <dt>Performance</dt>
-    <dd>{{result.performance}}ns</dd>
+    <dl class="stats">
+        <dt>Performance</dt>
+        <dd>{{result.performance}}ns</dd>
 
-    <dt>Memory</dt>
-    <dd>{{result.memory}} bytes</dd>
+        <dt>Memory</dt>
+        <dd>{{result.memory}} bytes</dd>
 
-    <dt>Characters</dt>
-    <dd>{{result.characters}}</dd>
-</dl>
+        <dt>Characters</dt>
+        <dd>{{result.characters}}</dd>
+    </dl>
+</div>

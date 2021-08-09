@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ResultComponent } from './components/results/result.component';
+import { SubmissionComponent } from './components/submission/submission.component';
 import { SubmissionFactory } from './services/submission.factory';
 import { SubmitService } from './services/submit.service';
 
 @NgModule({
     declarations: [
-        ResultComponent
+        ResultComponent,
+        SubmissionComponent
     ],
     exports: [
-        ResultComponent
+        ResultComponent,
+        SubmissionComponent
     ],
     imports: [
         CommonModule

@@ -1,0 +1,4 @@
+<div class="loading" *ngIf="!(resultPromise | async)">
+    Submitting...
+</div>
+<submission-result *ngIf="resultPromise | async" [result]="resultPromise | async"></submission-result>

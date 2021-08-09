@@ -8,5 +8,5 @@ import { ResultInterface } from '@hdc/submission';
 })
 export class ResultComponent {
     @Input()
-    public result!: ResultInterface;
+    public result!: ResultInterface | null;
 }

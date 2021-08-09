@@ -13,7 +13,7 @@ import { ChallengeInterface } from '../../interfaces/challenge.interface';
 export class ChallengeComponent {
     public challenge: ChallengeInterface = MISSING_NUMBERS_CHALLENGE;
     public value: string;
-    public result!: ResultInterface;
+    public result!: Promise<ResultInterface>;
     private _submitService: SubmitService;
 
     constructor(submitService: SubmitService) {
@@ -27,6 +27,6 @@ export class ChallengeComponent {
     }
 
     public async onSubmit(): Promise<void> {
-        this.result = await this._submitService.send(this.value, this.challenge);
+        this.result = this._submitService.send(this.value, this.challenge);
     }
 }
