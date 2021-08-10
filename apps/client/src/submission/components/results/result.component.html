@@ -10,13 +10,19 @@
     </ul>
 
     <dl class="stats">
-        <dt>Performance</dt>
-        <dd>{{result.performance}}ns</dd>
+        <ng-container *ngIf="result.performance">
+            <dt>Performance</dt>
+            <dd>{{result.performance}}ns</dd>
+        </ng-container>
 
-        <dt>Memory</dt>
-        <dd>{{result.memory}} bytes</dd>
+        <ng-container *ngIf="result.memory">
+            <dt>Memory</dt>
+            <dd>{{result.memory}} bytes</dd>
+        </ng-container>
 
-        <dt>Characters</dt>
-        <dd>{{result.characters}}</dd>
+        <ng-container *ngIf="result.characters">
+            <dt>Characters</dt>
+            <dd>{{result.characters}}</dd>
+        </ng-container>
     </dl>
 </div>

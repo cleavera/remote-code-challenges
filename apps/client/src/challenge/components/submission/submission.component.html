@@ -1,0 +1,5 @@
+<button class="submit" (click)="onSubmit()">Submit</button>
+<div class="loading" *ngIf="result && !(result | async)">
+    Submitting...
+</div>
+<submission-result *ngIf="result | async" [result]="result | async"></submission-result>

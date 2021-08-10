@@ -4,11 +4,13 @@ import { EditorModule } from '../editor';
 import { SubmissionModule } from '../submission';
 import { ChallengeComponent } from './components/challenge/challenge.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SubmissionComponent } from './components/submission/submission.component';
 
 @NgModule({
     declarations: [
         ChallengeComponent,
-        DetailsComponent
+        DetailsComponent,
+        SubmissionComponent
     ],
     imports: [
         CommonModule,

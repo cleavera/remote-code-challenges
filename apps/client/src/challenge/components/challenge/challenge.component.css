@@ -1,4 +1,32 @@
 .editor {
+    flex: 1 0 auto;
     height: 80vh;
-    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    margin: 10px 0;
+}
+
+.isActive {
+    background: #7777dd;
+}
+
+:host {
+    display: flex;
+}
+
+.panel {
+    flex: 0 1 20%;
+    padding: 20px;
+}
+
+.tab {
+    border: 0;
+    border-bottom: 1px solid;
+    padding: 10px;
+}
+
+.tab + .tab {
+    border-left: 1px solid;
 }

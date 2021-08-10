@@ -1,1 +1,2 @@
 <ngx-monaco-editor class="editor" [options]="editorOptions" [(ngModel)]="code" (ngModelChange)="onChange()"></ngx-monaco-editor>
+<p class="characters">(<span [innerText]="code.length"></span> characters)</p>

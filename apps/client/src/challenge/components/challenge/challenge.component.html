@@ -1,4 +1,10 @@
 <editor-editor class="editor" [defaultValue]="value" (editorChange)="onSolutionChange($event)"></editor-editor>
-<challenge-details [challenge]="challenge"></challenge-details>
-<button (click)="onSubmit()">Submit</button>
-<submission-submission [resultPromise]="result" *ngIf="result"></submission-submission>
+<div class="panel">
+    <div class="tabs">
+        <button class="tab" [class.isActive]="panel === 'details'" (click)="setPanel('details')">Details</button>
+        <button class="tab" [class.isActive]="panel === 'submission'" (click)="setPanel('submission')">Submission</button>
+    </div>
+    <challenge-details *ngIf="panel === 'details'" [challenge]="challenge"></challenge-details>
+    <challenge-submission  *ngIf="panel === 'submission'" [submission]="value" [challenge]="challenge"></challenge-submission>
+</div>
+

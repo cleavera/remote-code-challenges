@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ResultInterface } from '@hdc/submission';
-
-import { SubmitService } from '../../../submission';
 import { MISSING_NUMBERS_CHALLENGE } from '../../constants/1 - missing-numbers.challenge';
 import { ChallengeInterface } from '../../interfaces/challenge.interface';
 
@@ -14,19 +12,17 @@ export class ChallengeComponent {
     public challenge: ChallengeInterface = MISSING_NUMBERS_CHALLENGE;
     public value: string;
     public result!: Promise<ResultInterface>;
-    private _submitService: SubmitService;
+    public panel: string = 'details';
 
-    constructor(submitService: SubmitService) {
-        this._submitService = submitService;
-
-        this.value = 'function submission(arr) {\n\n}'
+    constructor() {
+        this.value = 'function submission(arr) {\n\n}';
     }
 
     public onSolutionChange(value: string): void {
         this.value = value;
     }
 
-    public async onSubmit(): Promise<void> {
-        this.result = this._submitService.send(this.value, this.challenge);
+    public setPanel(name: string): void {
+        this.panel = name;
     }
 }
