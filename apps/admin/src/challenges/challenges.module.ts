@@ -5,6 +5,7 @@ import { ChallengesComponent } from './components/challenges/challenges.componen
 import { DetailsComponent } from './components/details/details.component';
 import { JsonPipe } from './pipes/json.pipe';
 import { CHALLENGES_PROVIDER } from './providers/challenges.provider';
+import { ChallengeService } from './services/challenge.service';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { CHALLENGES_PROVIDER } from './providers/challenges.provider';
         CollaborationModule
     ],
     providers: [
-        CHALLENGES_PROVIDER
+        CHALLENGES_PROVIDER,
+        ChallengeService
     ]
 })
 export class ChallengesModule {

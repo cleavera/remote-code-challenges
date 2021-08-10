@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ChallengeInterface } from '@hdc/challenges';
-import { StartChallengeMessage } from '@hdc/communication';
-import { MessengerService } from '../../../collaboration';
+import { ChallengeService } from '../../services/challenge.service';
 
 @Component({
     selector: 'challenges-details',
@@ -11,13 +10,13 @@ import { MessengerService } from '../../../collaboration';
 export class DetailsComponent {
     @Input()
     public challenge!: ChallengeInterface;
-    private _messengerService: MessengerService;
+    private _challengeService: ChallengeService;
 
-    constructor(messengerService: MessengerService) {
-        this._messengerService = messengerService;
+    constructor(challengeService: ChallengeService) {
+        this._challengeService = challengeService;
     }
 
     public onStart(): void {
-        this._messengerService.send(new StartChallengeMessage(this.challenge.title));
+        this._challengeService.startChallenge(this.challenge);
     }
 }

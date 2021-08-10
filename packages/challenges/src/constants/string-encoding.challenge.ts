@@ -2,7 +2,7 @@ import { ChallengeInterface } from '../interfaces/challenge.interface';
 
 export const STRING_ENCODING_CHALLENGE: ChallengeInterface = {
     title: 'String encoding',
-    description: `You can a string and convert it to another string by taking each letter and use its position in the alphabet as the output string so \`e\` becomes \`5\`, \`r\` becomes \`18\` etc. You can then concatenate these numbers together to form a new string.
+    description: `You can a string and convert it to another string by taking each letter and use its position in the alphabet as the output string so \`e\` becomes \`5\`, \`r\` becomes \`18\` etc. You can then concatenate these numbers together to form a new string. For example "HELLO" would become "85121215", however "85121215" could also be "HEABABAE", information has been lost.
 
         You will be given an already encoded string, your task is to figure out how many possible input strings could have been the source.`,
     validation: [
