@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ResultInterface } from '@hdc/submission';
-import { MISSING_NUMBERS_CHALLENGE } from '../../constants/1 - missing-numbers.challenge';
-import { ChallengeInterface } from '../../interfaces/challenge.interface';
+import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
 
 @Component({
     selector: 'challenge-challenge',

@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import { ChallengeInterface } from '@hdc/challenges';
 
 @Component({
-    selector: 'challenge-details',
-    styleUrls: ['./details.component.css'],
-    templateUrl: './details.component.html'
+    selector: 'challenges-details',
+    templateUrl: './details.component.html',
+    styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
     @Input()

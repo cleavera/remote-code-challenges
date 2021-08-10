@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
+import { ChallengeInterface } from '@hdc/challenges';
 import { ResultInterface } from '@hdc/submission';
-import { Observable, Subject } from 'rxjs';
 
-import { ChallengeInterface } from '../../challenge';
 import { SubmissionFactory } from './submission.factory';
 
 @Injectable()

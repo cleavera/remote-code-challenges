@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let challenge of challenges">
+        <button (click)="onSelect(challenge)">{{challenge.title}}</button>
+    </li>
+</ul>
+
+<challenges-details *ngIf="selectedChallenge" [challenge]="selectedChallenge"></challenges-details>

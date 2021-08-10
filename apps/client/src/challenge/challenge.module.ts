@@ -20,7 +20,8 @@ import { SubmissionComponent } from './components/submission/submission.componen
         SubmissionModule
     ],
     exports: [
-        ChallengeComponent
+        ChallengeComponent,
+        DetailsComponent
     ],
     providers: []
 })

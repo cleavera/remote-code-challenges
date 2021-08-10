@@ -1,0 +1,14 @@
+<h1>{{challenge.title}}</h1>
+
+<p>{{challenge.description}}</p>
+
+<table class="cases">
+    <tr class="case-headers">
+        <th class="case-headers">Input</th>
+        <th class="case-headers">Output</th>
+    </tr>
+    <tr class="case">
+        <td class="case-input">{{challenge.validation[0].input[0] | json}}</td>
+        <td class="case-input">{{challenge.validation[0].output | json}}</td>
+    </tr>
+</table>

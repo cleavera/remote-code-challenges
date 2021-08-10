@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ResultInterface } from '@hdc/submission';
+import { ChallengeInterface } from '@hdc/challenges';
 
 import { SubmitService } from '../../../submission';
-import { ChallengeInterface } from '../../interfaces/challenge.interface';
 
 @Component({
     selector: 'challenge-submission',
