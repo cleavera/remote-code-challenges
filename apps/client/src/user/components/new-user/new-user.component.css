@@ -1,0 +1,18 @@
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+:host {
+    justify-content: center;
+    bottom: 0;
+    display: flex;
+    flex: 1 0 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+

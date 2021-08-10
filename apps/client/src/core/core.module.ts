@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ChallengeModule } from '../challenge';
+import { UserModule } from '../user';
 import { AppComponent } from './components/app/app.component';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AppComponent } from './components/app/app.component';
     ],
     imports: [
         BrowserModule,
-        ChallengeModule
+        ChallengeModule,
+        UserModule
     ],
     providers: [],
     bootstrap: [AppComponent]

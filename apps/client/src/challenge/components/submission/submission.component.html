@@ -1,4 +1,4 @@
-<button class="submit" (click)="onSubmit()">Submit</button>
+<form-button class="submit" (buttonClick)="onSubmit()" label="Submit"></form-button>
 <div class="loading" *ngIf="result && !(result | async)">
     Submitting...
 </div>
