@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ResultInterface } from '@hdc/submission';
 import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
 
@@ -8,7 +8,9 @@ import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
     templateUrl: './challenge.component.html'
 })
 export class ChallengeComponent {
-    public challenge: ChallengeInterface = MISSING_NUMBERS_CHALLENGE;
+    @Input()
+    public challenge!: ChallengeInterface;
+
     public value: string;
     public result!: Promise<ResultInterface>;
     public panel: string = 'details';

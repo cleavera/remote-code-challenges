@@ -1,7 +1,8 @@
 import { Subject } from 'rxjs';
+import { MessageInterface } from '../interfaces/message.interface';
 
 export class Connection {
-    public messages$: Subject<any>;
+    public messages$: Subject<MessageInterface>;
     private _channelName: string;
     private _socket: WebSocket;
 
@@ -19,7 +20,7 @@ export class Connection {
         });
     }
 
-    public send(data: unknown): void {
+    public send(data: MessageInterface): void {
         this._socket.send(JSON.stringify(data));
     }
 

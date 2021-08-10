@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewUserMessage } from '@hdc/communication';
 import { MessengerService } from '../../../collaboration';
 import { ProfileService } from '../../services/profile.service';
 
@@ -26,10 +27,7 @@ export class NewUserComponent implements OnInit {
     public onCreate(event: Event): void {
         event.preventDefault();
         this._profileService.newUser(this.name);
-        this._messengerService.send({
-            type: 'createUser',
-            user: this.name
-        });
+        this._messengerService.send(new NewUserMessage(this.name));
     }
 
     public onNameChange(name: string): void {

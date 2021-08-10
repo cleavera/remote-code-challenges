@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Connection } from '@hdc/communication';
+import { Connection, MessageInterface } from '@hdc/communication';
+import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class MessengerService {
@@ -13,7 +15,13 @@ export class MessengerService {
         this._connection = await Connection.Create('test');
     }
 
-    public send(message: unknown): void {
+    public send(message: MessageInterface): void {
         this._connection.send(message);
+    }
+
+    public subscribeByType(type: string): Observable<MessageInterface> {
+        return (this._connection.messages$.asObservable() as any).pipe(filter((message: MessageInterface): boolean => {
+            return message.type === type;
+        }));
     }
 }

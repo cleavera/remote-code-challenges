@@ -1,0 +1,3 @@
+<p *ngIf="!challenge" class="waiting">Waiting for challenge to start...</p>
+
+<challenge-challenge *ngIf="challenge" [challenge]="challenge"></challenge-challenge>
