@@ -1,5 +1,5 @@
 <form (submit)="onCreate($event)">
-    <form-field label="Name" type="text"></form-field>
+    <form-field label="Name" type="text" (fieldChange)="onNameChange($event)"></form-field>
 
     <form-button label="Create"></form-button>
 </form>
