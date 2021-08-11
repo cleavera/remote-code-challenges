@@ -1,0 +1,34 @@
+<div class="leaderboard">
+    <div class="performance">
+        <p class="header">Performance</p>
+        <div class="result" *ngIf="performance">
+            <p class="user">{{performance.user}}</p>
+            <p class="value">{{performance.result.performance}}ns</p>
+        </div>
+        <p class="noSubmission" *ngIf="!performance">
+            No submissions yet
+        </p>
+    </div>
+
+    <div class="memory">
+        <p class="header">Memory</p>
+        <div class="result" *ngIf="memory">
+            <p class="user">{{memory.user}}</p>
+            <p class="value">{{memory.result.memory}} bytes</p>
+        </div>
+        <p class="noSubmission" *ngIf="!memory">
+            No submissions yet
+        </p>
+    </div>
+
+    <div class="memory">
+        <p class="header">Characters</p>
+        <div class="result" *ngIf="characters">
+            <p class="user">{{characters.user}}</p>
+            <p class="value">{{characters.result.characters}}</p>
+        </div>
+        <p class="noSubmission" *ngIf="!characters">
+            No submissions yet
+        </p>
+    </div>
+</div>

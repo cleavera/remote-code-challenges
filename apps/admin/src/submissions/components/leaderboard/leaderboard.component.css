@@ -1,0 +1,36 @@
+.header {
+    font-weight: bold;
+}
+
+.leaderboard {
+    display: flex;
+    font-size: 2rem;
+}
+
+.performance,
+.memory,
+.characters {
+    align-items: center;
+    display: flex;
+    flex: 1 0 30%;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.noSubmission {
+    font-style: italic;
+}
+
+.user {
+    font-weight: bold;
+    display: flex;
+    margin: 0 10px;
+}
+
+.value {
+    margin: 0;
+}
+
+.result {
+    display: flex;
+}

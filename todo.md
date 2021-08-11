@@ -1,8 +1,11 @@
 # Todo
 
 - More challenges
-- Show failing testcase
 - Show leaderboard
+- Validate without submitting
 - Allow arbitrary tests
-- Remember username
+- Show failing testcase
 - Prettify
+- Remember username
+- Remember submission  
+- Sign results (prevent cheating)
