@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ChallengeInterface } from '@hdc/challenges';
-import { CurrentChallengeMessage, NewUserMessage, StartChallengeMessage } from '@hdc/communication';
+import { CurrentChallengeMessage, NewUserMessage, RejoinMessage, StartChallengeMessage } from '@hdc/communication';
 import { MessengerService } from '../../collaboration';
 
 @Injectable()
@@ -16,6 +16,12 @@ export class ChallengeService {
 
     public async init(): Promise<void> {
         (await this._messengerService.subscribeByType(NewUserMessage)).subscribe((message: NewUserMessage) => {
+            if (this.currentChallenge !== null) {
+                this.broadcastChallenge();
+            }
+        });
+
+        (await this._messengerService.subscribeByType(RejoinMessage)).subscribe((message: RejoinMessage) => {
             if (this.currentChallenge !== null) {
                 this.broadcastChallenge();
             }

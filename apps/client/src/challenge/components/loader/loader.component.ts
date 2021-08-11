@@ -13,13 +13,17 @@ export class LoaderComponent {
     public challenge: ChallengeInterface | null = null;
 
     constructor(messengerService: MessengerService, @Inject(CHALLENGES_TOKEN) challenges: Array<ChallengeInterface>) {
-        messengerService.subscribeByType(StartChallengeMessage.type).subscribe((message: MessageInterface) => {
+        this._init(messengerService, challenges);
+    }
+
+    private async _init(messengerService: MessengerService, challenges: Array<ChallengeInterface>): Promise<void> {
+        (await messengerService.subscribeByType(StartChallengeMessage)).subscribe((message: MessageInterface) => {
             this.challenge = challenges.find((challenge: ChallengeInterface) => {
                 return challenge.title === message.data.challenge;
             }) ?? null;
         });
 
-        messengerService.subscribeByType(CurrentChallengeMessage.type).subscribe((message: MessageInterface) => {
+        (await messengerService.subscribeByType(CurrentChallengeMessage)).subscribe((message: MessageInterface) => {
             this.challenge = challenges.find((challenge: ChallengeInterface) => {
                 return challenge.title === message.data.challenge;
             }) ?? null;

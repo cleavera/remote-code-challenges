@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CollaborationModule } from '../collaboration';
 import { FormModule } from '../form';
+import { PersistenceModule } from '../persistence';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { ProfileService } from './services/profile.service';
 
@@ -15,7 +16,8 @@ import { ProfileService } from './services/profile.service';
     imports: [
         CollaborationModule,
         CommonModule,
-        FormModule
+        FormModule,
+        PersistenceModule
     ],
     providers: [
         ProfileService

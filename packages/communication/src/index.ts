@@ -1,3 +1,4 @@
+export { RejoinMessage } from './classes/rejoin.message';
 export { SubmissionMessage } from './classes/submission.message';
 export { CurrentChallengeMessage } from './classes/current-challenge.message';
 export { NewUserMessage } from './classes/new-user.message';
