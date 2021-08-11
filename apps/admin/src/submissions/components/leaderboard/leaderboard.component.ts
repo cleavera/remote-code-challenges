@@ -9,16 +9,16 @@ import { SubmissionService } from '../../services/submission.service';
     templateUrl: './leaderboard.component.html'
 })
 export class LeaderboardComponent {
-    public performance: RecordInterface | null = null;
-    public memory: RecordInterface | null = null;
-    public characters: RecordInterface | null = null;
+    public performance: Array<RecordInterface> | null = null;
+    public memory: Array<RecordInterface> | null = null;
+    public characters: Array<RecordInterface> | null = null;
 
     @Input()
     public set challenge(challengeName: string) {
         this._submissionService.getLeaderboard(challengeName).subscribe((leaderBoard: LeaderboardInterface) => {
-            this.performance = leaderBoard.performance[0] ?? null;
-            this.memory = leaderBoard.memory[0] ?? null;
-            this.characters = leaderBoard.characters[0] ?? null;
+            this.performance = leaderBoard.performance?.slice(0,3) ?? null;
+            this.memory = leaderBoard.memory?.slice(0,3) ?? null;
+            this.characters = leaderBoard.characters?.slice(0,3) ?? null;
         });
     }
 

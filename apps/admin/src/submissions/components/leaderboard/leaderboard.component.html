@@ -1,33 +1,39 @@
 <div class="leaderboard">
     <div class="performance">
         <p class="header">Performance</p>
-        <div class="result" *ngIf="performance">
-            <p class="user">{{performance.user}}</p>
-            <p class="value">{{performance.result.performance}}ns</p>
-        </div>
-        <p class="noSubmission" *ngIf="!performance">
+        <ol *ngIf="performance && performance.length !== 0">
+            <li class="result" *ngFor="let result of performance">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.result.performance}}ns</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="!performance || performance.length === 0">
             No submissions yet
         </p>
     </div>
 
     <div class="memory">
         <p class="header">Memory</p>
-        <div class="result" *ngIf="memory">
-            <p class="user">{{memory.user}}</p>
-            <p class="value">{{memory.result.memory}} bytes</p>
-        </div>
-        <p class="noSubmission" *ngIf="!memory">
+        <ol *ngIf="memory && memory.length !== 0">
+            <li class="result" *ngFor="let result of memory">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.result.memory}} bytes</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="!memory || memory.length === 0">
             No submissions yet
         </p>
     </div>
 
-    <div class="memory">
+    <div class="characters">
         <p class="header">Characters</p>
-        <div class="result" *ngIf="characters">
-            <p class="user">{{characters.user}}</p>
-            <p class="value">{{characters.result.characters}}</p>
-        </div>
-        <p class="noSubmission" *ngIf="!characters">
+        <ol *ngIf="characters && characters.length !== 0">
+            <li class="result" *ngFor="let result of characters">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.result.characters}}</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="!characters || characters.length === 0">
             No submissions yet
         </p>
     </div>
