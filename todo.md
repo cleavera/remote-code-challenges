@@ -1,7 +1,7 @@
 # Todo
 
 - More challenges
-- Show failing testcase
+- Overall scoreboard
 - Prettify
 - Remember submission  
 - Sign results (prevent cheating)

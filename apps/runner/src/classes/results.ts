@@ -37,7 +37,7 @@ export class Results {
             performance: this.performance?.toString(10) ?? '',
             messages: this.messages,
             errors: this.errors.map((error: Error) => {
-                return error.message;
+                return error.stack ?? error.message;
             })
         };
     }

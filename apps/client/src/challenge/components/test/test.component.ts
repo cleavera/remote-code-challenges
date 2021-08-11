@@ -34,8 +34,8 @@ export class TestComponent {
     }
 
     public ngOnInit(): void {
-        this.input = this.defaultInput;
-        this.output = this.defaultOutput;
+        this.onInputChange(this.defaultInput);
+        this.onOutputChange(this.defaultOutput);
     }
 
     public async onValidate(): Promise<void> {
@@ -52,10 +52,10 @@ export class TestComponent {
     }
 
     public onInputChange(value: string): void {
-        this.input = value;
+        this.input = JSON.parse(value);
     }
 
     public onOutputChange(value: string): void {
-        this.output = value;
+        this.output = JSON.parse(value);
     }
 }
