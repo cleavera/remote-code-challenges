@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { ResultInterface } from '@hdc/submission';
 import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
 
@@ -7,7 +7,7 @@ import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
     styleUrls: ['./challenge.component.css'],
     templateUrl: './challenge.component.html'
 })
-export class ChallengeComponent {
+export class ChallengeComponent implements OnChanges {
     @Input()
     public challenge!: ChallengeInterface;
 
@@ -16,7 +16,12 @@ export class ChallengeComponent {
     public panel: string = 'details';
 
     constructor() {
-        this.value = 'function submission(arr) {\n\n}';
+        this.value = 'function submission(a) {\n\n}';
+    }
+
+    public ngOnChanges(): void {
+        this.setPanel('details');
+        this.value = 'function submission(a) {\n\n}';
     }
 
     public onSolutionChange(value: string): void {
