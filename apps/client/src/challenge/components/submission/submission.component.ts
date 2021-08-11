@@ -26,4 +26,8 @@ export class SubmissionComponent {
     public async onSubmit(): Promise<void> {
         this.result = this._submitService.send(this.submission, this.challenge);
     }
+
+    public async onValidate(): Promise<void> {
+        this.result = this._submitService.validate(this.submission, this.challenge);
+    }
 }
