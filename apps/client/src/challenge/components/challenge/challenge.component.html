@@ -3,8 +3,11 @@
     <div class="tabs">
         <button class="tab" [class.isActive]="panel === 'details'" (click)="setPanel('details')">Details</button>
         <button class="tab" [class.isActive]="panel === 'submission'" (click)="setPanel('submission')">Submission</button>
+        <button class="tab" [class.isActive]="panel === 'test'" (click)="setPanel('test')">Test</button>
     </div>
+
     <challenge-details *ngIf="panel === 'details'" [challenge]="challenge"></challenge-details>
-    <challenge-submission  *ngIf="panel === 'submission'" [submission]="value" [challenge]="challenge"></challenge-submission>
+    <challenge-submission *ngIf="panel === 'submission'" [submission]="value" [challenge]="challenge"></challenge-submission>
+    <challenge-test *ngIf="panel === 'test'" [submission]="value" [challenge]="challenge"></challenge-test>
 </div>
 

@@ -1,0 +1,8 @@
+<form-field label="Input" type="string" [defaultValue]="defaultInput" (fieldChange)="onInputChange($event)"></form-field>
+<form-field label="Output" type="string" [defaultValue]="defaultOutput" (fieldChange)="onOutputChange($event)"></form-field>
+<form-button label="Check" (buttonClick)="onValidate()"></form-button>
+
+<div class="loading" *ngIf="result && !(result | async)">
+    Checking...
+</div>
+<submission-result *ngIf="result | async" [result]="result | async"></submission-result>

@@ -8,6 +8,7 @@ import { ChallengeComponent } from './components/challenge/challenge.component';
 import { DetailsComponent } from './components/details/details.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SubmissionComponent } from './components/submission/submission.component';
+import { TestComponent } from './components/test/test.component';
 import { CHALLENGES_TOKEN } from './tokens/challenges.token';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CHALLENGES_TOKEN } from './tokens/challenges.token';
         ChallengeComponent,
         LoaderComponent,
         DetailsComponent,
-        SubmissionComponent
+        SubmissionComponent,
+        TestComponent
     ],
     imports: [
         CommonModule,

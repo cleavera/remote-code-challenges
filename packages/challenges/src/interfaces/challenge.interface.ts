@@ -4,6 +4,6 @@ export interface ChallengeInterface {
     title: string;
     description: string;
     validation: Array<TestCaseInterface>;
-    memory: TestCaseInterface;
-    performance: TestCaseInterface;
+    memory: TestCaseInterface | null;
+    performance: TestCaseInterface | null;
 }

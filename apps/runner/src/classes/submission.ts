@@ -22,25 +22,29 @@ export class Submission {
             return results;
         }
 
-        const memory: Execution = await this.memory();
+        if (this.submission.memory) {
+            const memory: Execution = await this.memory(this.submission.memory);
 
-        results.addExecution(memory);
+            results.addExecution(memory);
 
-        if (!results.passing()) {
-            return results;
+            if (!results.passing()) {
+                return results;
+            }
+
+            results.addMemory(memory);
         }
 
-        results.addMemory(memory);
+        if (this.submission.performance) {
+            const performance: Execution = await this.performance(this.submission.performance);
 
-        const performance: Execution = await this.performance();
+            results.addExecution(performance);
 
-        results.addExecution(performance);
+            if (!results.passing()) {
+                return results;
+            }
 
-        if (!results.passing()) {
-            return results;
+            results.addPerformanceData(performance);
         }
-
-        results.addPerformanceData(performance);
 
         return results;
     }
@@ -73,9 +77,7 @@ export class Submission {
         return execution;
     }
 
-    public async memory(): Promise<Execution> {
-        const testCase: TestCaseInterface = this.submission.memory;
-
+    public async memory(testCase: TestCaseInterface): Promise<Execution> {
         const script: string = `
             ${this.submission.submission}
 
@@ -103,9 +105,7 @@ export class Submission {
         return runs[4];
     }
 
-    public performance(): Promise<Execution> {
-        const testCase: TestCaseInterface = this.submission.performance;
-
+    public performance(testCase: TestCaseInterface): Promise<Execution> {
         const script: string = `
             ${this.submission.submission}
 
