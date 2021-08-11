@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ARRAY_SUMS_CHALLENGE, MISSING_NUMBERS_CHALLENGE, OVERLAPPING_RANGES_CHALLENGE, STRING_ENCODING_CHALLENGE } from '@hdc/challenges';
+import { ARRAY_SUMS_CHALLENGE, FACTORIALS_CHALLENGE, MISSING_NUMBERS_CHALLENGE, OVERLAPPING_RANGES_CHALLENGE, PROPER_BRACKETS_CHALLENGE, STRING_ENCODING_CHALLENGE } from '@hdc/challenges';
 import { EditorModule } from '../editor';
 import { FormModule } from '../form';
 import { SubmissionModule } from '../submission';
@@ -37,7 +37,9 @@ import { CHALLENGES_TOKEN } from './tokens/challenges.token';
                 MISSING_NUMBERS_CHALLENGE,
                 STRING_ENCODING_CHALLENGE,
                 OVERLAPPING_RANGES_CHALLENGE,
-                ARRAY_SUMS_CHALLENGE
+                ARRAY_SUMS_CHALLENGE,
+                PROPER_BRACKETS_CHALLENGE,
+                FACTORIALS_CHALLENGE
             ]
         }
     ]
