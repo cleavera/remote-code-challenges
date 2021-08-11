@@ -15,6 +15,13 @@ export class FieldComponent implements OnInit {
     @Input()
     public defaultValue!: any;
 
+    @Input()
+    public minLength!: number;
+
+    @Input()
+    public maxLength!: number;
+
+
     @Output()
     public fieldChange: EventEmitter<any> = new EventEmitter<any>();
 

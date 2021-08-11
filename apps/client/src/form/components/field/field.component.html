@@ -1,2 +1,2 @@
 <label [for]="fieldId">{{label}}</label>
-<input [type]="type" [id]="fieldId" (input)="onChange($event)" [value]="value" />
+<input [type]="type" [id]="fieldId" (input)="onChange($event)" [value]="value" [minLength]="minLength" [maxLength]="maxLength" />
