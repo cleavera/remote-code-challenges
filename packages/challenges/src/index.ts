@@ -1,3 +1,4 @@
+export { ARRAY_SUMS_CHALLENGE } from './constants/array-sums.challenge';
 export { OVERLAPPING_RANGES_CHALLENGE } from './constants/overlapping-ranges.challenge';
 export { STRING_ENCODING_CHALLENGE } from './constants/string-encoding.challenge';
 export { ChallengeInterface } from './interfaces/challenge.interface';
