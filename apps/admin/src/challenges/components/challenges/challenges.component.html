@@ -1,9 +1,17 @@
-<ul>
-    <li *ngFor="let challenge of challenges">
-        <button (click)="onSelect(challenge)">{{challenge.title}}</button>
-    </li>
-</ul>
+<button *ngIf="selectedChallenge || showScoreboard" (click)="onSelect(null); showScoreboard = false">Back to challenge list</button>
 
-<submission-overall-leaderboard></submission-overall-leaderboard>
+<submission-overall-leaderboard *ngIf="showScoreboard" class="overallLeaderboard"></submission-overall-leaderboard>
 
-<challenges-details *ngIf="selectedChallenge" [challenge]="selectedChallenge"></challenges-details>
+<ng-container *ngIf="!showScoreboard">
+    <ng-container *ngIf="!selectedChallenge">
+        <button (click)="showScoreboard = true">Show scoreboard</button>
+
+        <ul class="challenges">
+            <li class="challenge" *ngFor="let challenge of challenges">
+                <button class="challenge-button" (click)="onSelect(challenge)">{{challenge.title}}</button>
+            </li>
+        </ul>
+    </ng-container>
+
+    <challenges-details *ngIf="selectedChallenge" [challenge]="selectedChallenge"></challenges-details>
+</ng-container>

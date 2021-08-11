@@ -1,18 +1,26 @@
-<h1>{{challenge.title}}</h1>
+<div class="container">
 
-<p>{{challenge.description}}</p>
+    <div class="detailsContainer">
+        <h1 class="name">{{challenge.title}}</h1>
 
-<table class="cases">
-    <tr class="case-headers">
-        <th class="case-headers">Input</th>
-        <th class="case-headers">Output</th>
-    </tr>
-    <tr class="case">
-        <td class="case-input">{{challenge.validation[0].input[0] | json}}</td>
-        <td class="case-input">{{challenge.validation[0].output | json}}</td>
-    </tr>
-</table>
+        <div *ngIf="!started" class="details">
+            <p>{{challenge.description}}</p>
 
-<button (click)="onStart()">Start</button>
+            <p>Example:</p>
+            <table class="cases">
+                <tr class="case-headers">
+                    <th class="case-headers">Input</th>
+                    <th class="case-headers">Output</th>
+                </tr>
+                <tr class="case">
+                    <td class="case-input">{{challenge.validation[0].input[0] | json}}</td>
+                    <td class="case-input">{{challenge.validation[0].output | json}}</td>
+                </tr>
+            </table>
 
-<submission-leaderboard [challenge]="challenge.title"></submission-leaderboard>
+            <button (click)="onStart()" >Start</button>
+        </div>
+    </div>
+
+    <submission-leaderboard *ngIf="started" [challenge]="challenge.title"></submission-leaderboard>
+</div>

@@ -4,7 +4,6 @@
 
 .leaderboard {
     display: flex;
-    font-size: 2rem;
 }
 
 .performance,
@@ -12,9 +11,9 @@
 .characters {
     align-items: center;
     display: flex;
-    flex: 1 0 30%;
+    flex: 1 0 0;
     flex-direction: column;
-    margin: 10px;
+    margin: 1rem;
 }
 
 .noSubmission {
@@ -23,14 +22,23 @@
 
 .user {
     font-weight: bold;
-    display: flex;
-    margin: 0 10px;
+    flex: 1 0 50%;
+    margin: 0;
 }
 
 .value {
     margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
 }
 
 .result {
     display: flex;
+}
+
+.resultList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
 }

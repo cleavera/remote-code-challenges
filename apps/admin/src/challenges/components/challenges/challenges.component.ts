@@ -10,12 +10,13 @@ import { CHALLENGES_TOKEN } from '../../tokens/challenges.token';
 export class ChallengesComponent {
     public challenges: Array<ChallengeInterface>;
     public selectedChallenge: ChallengeInterface | null = null;
+    public showScoreboard: boolean = false;
 
     constructor(@Inject(CHALLENGES_TOKEN) challenges: Array<ChallengeInterface>) {
         this.challenges = challenges;
     }
 
-    public onSelect(challenge: ChallengeInterface): void {
+    public onSelect(challenge: ChallengeInterface | null): void {
         this.selectedChallenge = challenge;
     }
 }

@@ -3,3 +3,15 @@
     border: 1px solid black;
     padding: 10px;
 }
+
+.container {
+    background: var(--color-challenge);
+    border: 1px solid var(--color-dividers);
+    max-width: 80vw;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.name {
+    margin: auto;
+}

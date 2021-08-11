@@ -10,6 +10,11 @@ import { ChallengeService } from '../../services/challenge.service';
 export class DetailsComponent {
     @Input()
     public challenge!: ChallengeInterface;
+
+    public get started(): boolean {
+        return this.challenge === this._challengeService.currentChallenge;
+    }
+
     private _challengeService: ChallengeService;
 
     constructor(challengeService: ChallengeService) {

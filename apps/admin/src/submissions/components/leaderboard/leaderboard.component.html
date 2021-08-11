@@ -1,7 +1,7 @@
 <div class="leaderboard">
     <div class="performance">
         <p class="header">Performance</p>
-        <ol *ngIf="performance && performance.length !== 0">
+        <ol class="resultList" *ngIf="performance && performance.length !== 0">
             <li class="result" *ngFor="let result of performance">
                 <p class="user">{{result.user}}</p>
                 <p class="value">{{result.result.performance}}ns</p>
@@ -14,7 +14,7 @@
 
     <div class="memory">
         <p class="header">Memory</p>
-        <ol *ngIf="memory && memory.length !== 0">
+        <ol class="resultList" *ngIf="memory && memory.length !== 0">
             <li class="result" *ngFor="let result of memory">
                 <p class="user">{{result.user}}</p>
                 <p class="value">{{result.result.memory}} bytes</p>
@@ -27,7 +27,7 @@
 
     <div class="characters">
         <p class="header">Characters</p>
-        <ol *ngIf="characters && characters.length !== 0">
+        <ol class="resultList" *ngIf="characters && characters.length !== 0">
             <li class="result" *ngFor="let result of characters">
                 <p class="user">{{result.user}}</p>
                 <p class="value">{{result.result.characters}}</p>
