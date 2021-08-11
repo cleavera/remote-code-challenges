@@ -2,7 +2,7 @@ import { ChallengeInterface } from '../interfaces/challenge.interface';
 
 export const OVERLAPPING_RANGES_CHALLENGE: ChallengeInterface = {
     title: 'Overlapping ranges',
-    description: 'You will be give an array of tuples (array of 2 items), the tuples define the start and end of a range. Some of these ranges will overlap, this array of ranges can therefore be simplified by combining the overlapping ranges. You should return the minimum number of ranges that is required to describe the same array of ranges.',
+    description: 'You will be given an array of tuples (array of 2 items), the tuples define the start and end of a range. Some of these ranges will overlap, this array of ranges can therefore be simplified by combining the overlapping ranges. You should return the minimum number of ranges that is required to describe the same array of ranges.',
     validation: [
         {
             input: [[[0,5], [7,10], [3, 6]]],
