@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Connection } from '@hdc/communication';
+import { Connection } from '@hackdaychallenges/communication';
 
 @Component({
     selector: 'core-app',

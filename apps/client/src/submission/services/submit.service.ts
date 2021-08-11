@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
-import { SubmissionMessage } from '@hdc/communication';
-import { ResultInterface } from '@hdc/submission';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { SubmissionMessage } from '@hackdaychallenges/communication';
+import { ResultInterface } from '@hackdaychallenges/submission';
 
 import { MessengerService } from '../../collaboration';
 import { Profile, ProfileService } from '../../user';
@@ -23,7 +23,7 @@ export class SubmitService {
     }
 
     public async validate(submission: string, challenge: ChallengeInterface): Promise<ResultInterface> {
-        const request: Response = await fetch('http://localhost:7071/api/SubmissionRunner', {
+        const request: Response = await fetch('https://hdc-runner.azurewebsites.net/api/SubmissionRunner?code=udbnaVDxyPVETMYbVTJ15YNFijmiQAxBs/EaOG1Yvr2yYV7Ls692ww==', {
             method: 'POST',
             body: JSON.stringify(this._submissionFactory.create(submission, challenge))
         });

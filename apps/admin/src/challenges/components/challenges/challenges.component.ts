@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
 import { CHALLENGES_TOKEN } from '../../tokens/challenges.token';
 
 @Component({

@@ -1,5 +1,5 @@
 import { AzureFunction, Context as AzureContext, HttpRequest } from '@azure/functions';
-import { SubmissionInterface } from '@hdc/submission';
+import { SubmissionInterface } from '@hackdaychallenges/submission';
 
 import { Content } from './classes/content';
 import { Response } from './classes/response';

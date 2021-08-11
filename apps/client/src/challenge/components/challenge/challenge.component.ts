@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ResultInterface } from '@hdc/submission';
-import { ChallengeInterface, MISSING_NUMBERS_CHALLENGE } from '@hdc/challenges';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { ResultInterface } from '@hackdaychallenges/submission';
 import { PersistenceService } from '../../../persistence';
 
 @Component({

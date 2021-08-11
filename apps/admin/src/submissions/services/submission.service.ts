@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SubmissionMessage } from '@hdc/communication';
+import { SubmissionMessage } from '@hackdaychallenges/communication';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { MessengerService } from '../../collaboration';

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
-import { CurrentChallengeMessage, MessageInterface, StartChallengeMessage } from '@hdc/communication';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { CurrentChallengeMessage, MessageInterface, StartChallengeMessage } from '@hackdaychallenges/communication';
 import { BehaviorSubject } from 'rxjs';
 import { MessengerService } from '../../collaboration';
 import { CHALLENGES_TOKEN } from '../tokens/challenges.token';

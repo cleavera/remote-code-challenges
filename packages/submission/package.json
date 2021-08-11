@@ -1,5 +1,5 @@
 {
-    "name": "@hdc/submission",
+    "name": "@hackdaychallenges/submission",
     "version": "1.0.0",
     "description": "",
     "main": "./dist/index.js",

@@ -1,4 +1,4 @@
-import { SubmissionInterface, TestCaseInterface } from '@hdc/submission';
+import { SubmissionInterface, TestCaseInterface } from '@hackdaychallenges/submission';
 import { Script } from 'vm';
 
 import { Execution } from './execution';
@@ -25,7 +25,7 @@ export class Submission {
         if (this.submission.memory) {
             const memory: Execution = await this.memory(this.submission.memory);
 
-            results.addExecution(memory);
+            results.addExecution(memory, true);
 
             if (!results.passing()) {
                 return results;
@@ -37,7 +37,7 @@ export class Submission {
         if (this.submission.performance) {
             const performance: Execution = await this.performance(this.submission.performance);
 
-            results.addExecution(performance);
+            results.addExecution(performance, true);
 
             if (!results.passing()) {
                 return results;

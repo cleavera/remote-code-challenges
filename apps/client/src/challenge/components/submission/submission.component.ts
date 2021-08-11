@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
-import { ResultInterface } from '@hdc/submission';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { ResultInterface } from '@hackdaychallenges/submission';
 
 import { SubmitService } from '../../../submission';
 

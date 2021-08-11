@@ -1,0 +1,9 @@
+button {
+    background: var(--color-button-background);
+    border: 1px solid var(--color-dividers);
+}
+
+button:hover,
+button:focus {
+    background: var(--color-button-hover);
+}

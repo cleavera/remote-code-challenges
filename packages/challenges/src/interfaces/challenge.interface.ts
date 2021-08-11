@@ -1,4 +1,4 @@
-import { TestCaseInterface } from '@hdc/submission';
+import { TestCaseInterface } from '@hackdaychallenges/submission';
 
 export interface ChallengeInterface {
     title: string;

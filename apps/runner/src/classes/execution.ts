@@ -1,5 +1,4 @@
 import { Profile } from '@cleavera/benchmark';
-import { ResultInterface } from '@hdc/submission';
 
 export class Execution {
     public messages: Array<string>;

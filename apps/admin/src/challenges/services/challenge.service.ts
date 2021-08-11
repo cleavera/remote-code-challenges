@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
-import { CurrentChallengeMessage, NewUserMessage, RejoinMessage, StartChallengeMessage } from '@hdc/communication';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { CurrentChallengeMessage, NewUserMessage, RejoinMessage, StartChallengeMessage } from '@hackdaychallenges/communication';
 import { MessengerService } from '../../collaboration';
 
 @Injectable()

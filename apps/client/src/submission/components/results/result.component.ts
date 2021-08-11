@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ResultInterface } from '@hdc/submission';
+import { ResultInterface } from '@hackdaychallenges/submission';
 
 @Component({
     selector: 'submission-result',

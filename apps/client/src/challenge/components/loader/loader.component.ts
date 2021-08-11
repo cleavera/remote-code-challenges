@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
 import { ChallengeService } from '../../services/challenge.service';
 
 @Component({

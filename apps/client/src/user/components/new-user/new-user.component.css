@@ -6,6 +6,7 @@ form {
 }
 
 :host {
+    --field-fontSize: 1.5rem;
     justify-content: center;
     bottom: 0;
     display: flex;
@@ -14,5 +15,9 @@ form {
     position: fixed;
     right: 0;
     top: 0;
+}
+
+.submit {
+    margin: 10px;
 }
 

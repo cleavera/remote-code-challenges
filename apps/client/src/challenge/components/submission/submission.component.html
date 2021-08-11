@@ -1,5 +1,8 @@
-<form-button class="submit" (buttonClick)="onSubmit()" label="Submit"></form-button>
-<form-button class="submit" (buttonClick)="onValidate()" label="Validate"></form-button>
+<div class="actions">
+    <form-button class="submit" (buttonClick)="onSubmit()" label="Submit"></form-button>
+    <form-button class="submit" (buttonClick)="onValidate()" label="Validate"></form-button>
+</div>
+
 <div class="loading" *ngIf="result && !(result | async)">
     Submitting...
 </div>

@@ -1,11 +1,7 @@
 <div *ngIf="result">
-    <ul class="messages">
+    <ul class="messages errors">
         <li class="error" *ngFor="let error of result.errors">
             {{ error }}
-        </li>
-
-        <li class="message" *ngFor="let message of result.messages">
-            {{ message }}
         </li>
     </ul>
 
@@ -25,4 +21,10 @@
             <dd>{{result.characters}}</dd>
         </ng-container>
     </dl>
+
+    <ul class="messages info">
+        <li class="message" *ngFor="let message of result.messages">
+            {{ message }}
+        </li>
+    </ul>
 </div>

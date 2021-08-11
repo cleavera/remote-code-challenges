@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Connection, MessageInterface } from '@hdc/communication';
+import { Connection, MessageInterface } from '@hackdaychallenges/communication';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 

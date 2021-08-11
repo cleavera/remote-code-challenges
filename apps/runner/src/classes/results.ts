@@ -1,4 +1,4 @@
-import { ResultInterface, SubmissionInterface } from '@hdc/submission';
+import { ResultInterface, SubmissionInterface } from '@hackdaychallenges/submission';
 
 import { Execution } from './execution';
 
@@ -17,8 +17,11 @@ export class Results {
         this.memory = null;
     }
 
-    public addExecution(execution: Execution): void {
-        this.messages = this.messages.concat(execution.messages);
+    public addExecution(execution: Execution, errorsOnly: boolean = false): void {
+        if (!errorsOnly){
+            this.messages = this.messages.concat(execution.messages);
+        }
+
         this.errors = this.errors.concat(execution.errors);
     }
 

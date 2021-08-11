@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
 import { FieldComponent } from './components/field/field.component';
 
@@ -6,6 +7,9 @@ import { FieldComponent } from './components/field/field.component';
     declarations: [
         ButtonComponent,
         FieldComponent
+    ],
+    imports: [
+        FormsModule
     ],
     exports: [
         ButtonComponent,

@@ -1,4 +1,4 @@
-import { ResultInterface } from '@hdc/submission';
+import { ResultInterface } from '@hackdaychallenges/submission';
 
 export interface RecordInterface {
     submission: string;

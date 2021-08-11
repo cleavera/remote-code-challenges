@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
-import { SubmissionInterface } from '@hdc/submission';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
+import { SubmissionInterface } from '@hackdaychallenges/submission';
 
 @Injectable()
 export class SubmissionFactory {

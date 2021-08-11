@@ -2,3 +2,14 @@
     display: block;
     margin: 10px 0;
 }
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.loading {
+    font-style: italic;
+    margin: 30px 0;
+    text-align: center;
+}

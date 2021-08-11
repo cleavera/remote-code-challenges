@@ -1,5 +1,5 @@
 {
-    "name": "@hdc/challenges",
+    "name": "@hackdaychallenges/challenges",
     "version": "1.0.0",
     "description": "",
     "main": "./dist/index.js",
@@ -18,6 +18,6 @@
         "typescript": "^4.3.5"
     },
     "dependencies": {
-        "@hdc/submission": "file:../submission/hdc-submission-1.0.0.tgz"
+        "@hackdaychallenges/submission": "^1.0.0"
     }
 }

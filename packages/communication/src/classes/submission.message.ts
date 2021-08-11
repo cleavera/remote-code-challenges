@@ -1,4 +1,4 @@
-import { ResultInterface } from '@hdc/submission';
+import { ResultInterface } from '@hackdaychallenges/submission';
 import { MessageInterface } from '../interfaces/message.interface';
 
 export class SubmissionMessage implements MessageInterface {

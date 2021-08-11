@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ChallengeInterface } from '@hdc/challenges';
+import { ChallengeInterface } from '@hackdaychallenges/challenges';
 
 @Component({
     selector: 'challenge-details',

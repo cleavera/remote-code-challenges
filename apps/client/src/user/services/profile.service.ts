@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NewUserMessage, RejoinMessage } from '@hdc/communication';
+import { NewUserMessage, RejoinMessage } from '@hackdaychallenges/communication';
 import { BehaviorSubject } from 'rxjs';
 import { MessengerService } from '../../collaboration';
 import { PersistenceService } from '../../persistence';

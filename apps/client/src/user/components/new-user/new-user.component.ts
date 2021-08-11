@@ -22,6 +22,11 @@ export class NewUserComponent implements OnInit {
 
     public onCreate(event: Event): void {
         event.preventDefault();
+
+        if (this.name.length < 4) {
+            return;
+        }
+
         this._profileService.newUser(this.name);
     }
 
