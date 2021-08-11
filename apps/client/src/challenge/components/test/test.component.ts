@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChallengeInterface } from '@hdc/challenges';
 import { ResultInterface } from '@hdc/submission';
 import { SubmitService } from '../../../submission';
@@ -8,7 +8,7 @@ import { SubmitService } from '../../../submission';
     styleUrls: ['./test.component.css'],
     templateUrl: './test.component.html'
 })
-export class TestComponent {
+export class TestComponent implements OnInit {
     @Input()
     public challenge!: ChallengeInterface;
 
@@ -42,10 +42,12 @@ export class TestComponent {
         this.result = this._submitService.validate(this.submission, {
             description: this.challenge.description,
             title: this.challenge.title,
-            validation: [{
-                input: [this.input],
-                output: this.output
-            }],
+            validation: [
+                {
+                    input: [this.input],
+                    output: this.output
+                }
+            ],
             performance: null,
             memory: null
         });

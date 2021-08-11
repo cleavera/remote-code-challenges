@@ -1,8 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChallengeInterface } from '@hdc/challenges';
-import { CurrentChallengeMessage, MessageInterface, StartChallengeMessage } from '@hdc/communication';
-import { MessengerService } from '../../../collaboration';
-import { CHALLENGES_TOKEN } from '../../tokens/challenges.token';
+import { ChallengeService } from '../../services/challenge.service';
 
 @Component({
     selector: 'challenge-loader',
@@ -12,21 +10,9 @@ import { CHALLENGES_TOKEN } from '../../tokens/challenges.token';
 export class LoaderComponent {
     public challenge: ChallengeInterface | null = null;
 
-    constructor(messengerService: MessengerService, @Inject(CHALLENGES_TOKEN) challenges: Array<ChallengeInterface>) {
-        this._init(messengerService, challenges);
-    }
-
-    private async _init(messengerService: MessengerService, challenges: Array<ChallengeInterface>): Promise<void> {
-        (await messengerService.subscribeByType(StartChallengeMessage)).subscribe((message: MessageInterface) => {
-            this.challenge = challenges.find((challenge: ChallengeInterface) => {
-                return challenge.title === message.data.challenge;
-            }) ?? null;
-        });
-
-        (await messengerService.subscribeByType(CurrentChallengeMessage)).subscribe((message: MessageInterface) => {
-            this.challenge = challenges.find((challenge: ChallengeInterface) => {
-                return challenge.title === message.data.challenge;
-            }) ?? null;
+    constructor(challengeService: ChallengeService) {
+        challengeService.current$.subscribe((challenge: ChallengeInterface | null) => {
+            this.challenge = challenge;
         });
     }
 }

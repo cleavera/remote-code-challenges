@@ -9,6 +9,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SubmissionComponent } from './components/submission/submission.component';
 import { TestComponent } from './components/test/test.component';
+import { ChallengeService } from './services/challenge.service';
 import { CHALLENGES_TOKEN } from './tokens/challenges.token';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CHALLENGES_TOKEN } from './tokens/challenges.token';
         LoaderComponent
     ],
     providers: [
+        ChallengeService,
         {
             provide: CHALLENGES_TOKEN,
             useValue: [
