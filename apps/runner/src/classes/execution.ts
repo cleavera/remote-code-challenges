@@ -44,6 +44,6 @@ export class Execution {
     }
 
     public static Create(): Execution {
-        return new Execution(new Profile('Run', null, 1e5));
+        return new Execution(new Profile('Run', null, 2e4));
     }
 }

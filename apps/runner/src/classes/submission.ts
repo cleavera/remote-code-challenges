@@ -86,7 +86,7 @@ export class Submission {
 
         const runs: Array<Execution> = [];
 
-        for (let x = 0; x < 10; x++) {
+        for (let x = 0; x < 100; x++) {
             runs.push(await this._execute(script));
         }
 
@@ -102,7 +102,7 @@ export class Submission {
             return 0;
         });
 
-        return runs[4];
+        return runs[49];
     }
 
     public performance(testCase: TestCaseInterface): Promise<Execution> {
