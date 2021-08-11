@@ -19,8 +19,7 @@ export class FieldComponent implements OnInit {
     public minLength!: number;
 
     @Input()
-    public maxLength!: number;
-
+    public maxLength: number = 1000;
 
     @Output()
     public fieldChange: EventEmitter<any> = new EventEmitter<any>();

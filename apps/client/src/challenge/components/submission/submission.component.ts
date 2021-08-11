@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ResultInterface } from '@hdc/submission';
 import { ChallengeInterface } from '@hdc/challenges';
+import { ResultInterface } from '@hdc/submission';
 
 import { SubmitService } from '../../../submission';
 
@@ -11,12 +11,17 @@ import { SubmitService } from '../../../submission';
 })
 export class SubmissionComponent {
     @Input()
-    public challenge!: ChallengeInterface;
+    public set challenge(value: ChallengeInterface) {
+        this.result = null;
+
+        this._challenge = value;
+    }
 
     @Input()
     public submission!: string;
 
     public result: Promise<ResultInterface> | null = null;
+    private _challenge!: ChallengeInterface;
     private _submitService: SubmitService;
 
     constructor(submitService: SubmitService) {
@@ -24,10 +29,10 @@ export class SubmissionComponent {
     }
 
     public async onSubmit(): Promise<void> {
-        this.result = this._submitService.send(this.submission, this.challenge);
+        this.result = this._submitService.send(this.submission, this._challenge);
     }
 
     public async onValidate(): Promise<void> {
-        this.result = this._submitService.validate(this.submission, this.challenge);
+        this.result = this._submitService.validate(this.submission, this._challenge);
     }
 }

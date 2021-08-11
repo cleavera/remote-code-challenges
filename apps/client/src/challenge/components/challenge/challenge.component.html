@@ -7,8 +7,8 @@
         <button class="tab" [class.isActive]="panel === 'test'" (click)="setPanel('test')">Test</button>
     </div>
 
-    <challenge-details *ngIf="panel === 'details'" [challenge]="challenge"></challenge-details>
-    <challenge-submission *ngIf="panel === 'submission'" [submission]="value" [challenge]="challenge"></challenge-submission>
-    <challenge-test *ngIf="panel === 'test'" [submission]="value" [challenge]="challenge"></challenge-test>
+    <challenge-details [hidden]="panel !== 'details'" [challenge]="challenge"></challenge-details>
+    <challenge-submission [hidden]="panel !== 'submission'" [submission]="value" [challenge]="challenge"></challenge-submission>
+    <challenge-test [hidden]="panel !== 'test'" [submission]="value" [challenge]="challenge"></challenge-test>
 </div>
 

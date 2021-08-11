@@ -10,23 +10,28 @@ import { SubmitService } from '../../../submission';
 })
 export class TestComponent implements OnInit {
     @Input()
-    public challenge!: ChallengeInterface;
+    public set challenge(value: ChallengeInterface) {
+        this.result = null;
+
+        this._challenge = value;
+    }
 
     @Input()
     public submission!: string;
 
     public get defaultInput(): string {
-        return JSON.stringify(this.challenge.validation[0].input[0]);
+        return JSON.stringify(this._challenge.validation[0].input[0]);
     }
 
     public get defaultOutput(): string {
-        return JSON.stringify(this.challenge.validation[0].output);
+        return JSON.stringify(this._challenge.validation[0].output);
     }
 
     public input!: string;
     public output!: string;
-
     public result: Promise<ResultInterface> | null = null;
+
+    private _challenge!: ChallengeInterface;
     private _submitService: SubmitService;
 
     constructor(submitService: SubmitService) {
@@ -40,8 +45,8 @@ export class TestComponent implements OnInit {
 
     public async onValidate(): Promise<void> {
         this.result = this._submitService.validate(this.submission, {
-            description: this.challenge.description,
-            title: this.challenge.title,
+            description: this._challenge.description,
+            title: this._challenge.title,
             validation: [
                 {
                     input: [this.input],
@@ -54,10 +59,18 @@ export class TestComponent implements OnInit {
     }
 
     public onInputChange(value: string): void {
+        if (value === '') {
+            value = 'null';
+        }
+
         this.input = JSON.parse(value);
     }
 
     public onOutputChange(value: string): void {
+        if (value === '') {
+            value = 'null';
+        }
+
         this.output = JSON.parse(value);
     }
 }
