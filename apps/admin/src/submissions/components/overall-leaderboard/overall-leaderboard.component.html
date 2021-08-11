@@ -1,0 +1,40 @@
+<div class="leaderboard" *ngIf="overAllLeaderBoard">
+    <div class="performance">
+        <p class="header">Performance</p>
+        <ol *ngIf="overAllLeaderBoard.performance.length !== 0">
+            <li class="result" *ngFor="let result of overAllLeaderBoard.performance">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.points}}</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="overAllLeaderBoard.performance.length === 0">
+            No submissions yet
+        </p>
+    </div>
+
+    <div class="memory">
+        <p class="header">Memory</p>
+        <ol *ngIf="overAllLeaderBoard.memory.length !== 0">
+            <li class="result" *ngFor="let result of overAllLeaderBoard.memory">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.points}}</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="overAllLeaderBoard.memory.length === 0">
+            No submissions yet
+        </p>
+    </div>
+
+    <div class="characters">
+        <p class="header">Characters</p>
+        <ol *ngIf="overAllLeaderBoard.characters.length !== 0">
+            <li class="result" *ngFor="let result of overAllLeaderBoard.characters">
+                <p class="user">{{result.user}}</p>
+                <p class="value">{{result.points}}</p>
+            </li>
+        </ol>
+        <p class="noSubmission" *ngIf="overAllLeaderBoard.characters.length === 0">
+            No submissions yet
+        </p>
+    </div>
+</div>
