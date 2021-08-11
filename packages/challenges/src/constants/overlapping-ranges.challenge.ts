@@ -13,7 +13,7 @@ export const OVERLAPPING_RANGES_CHALLENGE: ChallengeInterface = {
             output: 3
         },
         {
-            input: [[[0,5], [7,10], [3, 6], [5,5], [9, 100], [-10, -1], [-3, -2]]],
+            input: [[[0,5], [7,10], [6, 3], [5,5], [9, 100], [-10, -1], [-3, -2]]],
             output: 3
         }
     ],
