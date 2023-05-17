@@ -4,6 +4,7 @@
 
 .leaderboard {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .performance,
@@ -41,4 +42,14 @@
     margin: 0;
     list-style: none;
     width: 100%;
+}
+
+.submission {
+    border: 1px solid var(--color-dividers);
+    font-family: monospace;
+    flex: 1 0 auto;
+    font-size: 0.6rem;
+    overflow: auto;
+    padding: 10px;
+    white-space: pre;
 }

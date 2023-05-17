@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ARRAY_SUMS_CHALLENGE, FACTORIALS_CHALLENGE, MISSING_NUMBERS_CHALLENGE, OVERLAPPING_RANGES_CHALLENGE, PROPER_BRACKETS_CHALLENGE, STRING_ENCODING_CHALLENGE } from '@hackdaychallenges/challenges';
+import { ARRAY_SUMS_CHALLENGE, FACTORIALS_CHALLENGE, FIBONACCI_CHALLENGE, MISSING_NUMBERS_CHALLENGE, OVERLAPPING_RANGES_CHALLENGE, PROPER_BRACKETS_CHALLENGE, STRING_ENCODING_CHALLENGE } from '@hackdaychallenges/challenges';
+import { MULTIPLES_CHALLENGE } from '@hackdaychallenges/challenges/dist/constants/multiples.challenge';
 import { EditorModule } from '../editor';
 import { FormModule } from '../form';
 import { SubmissionModule } from '../submission';
@@ -41,7 +42,9 @@ import { CHALLENGES_TOKEN } from './tokens/challenges.token';
                 OVERLAPPING_RANGES_CHALLENGE,
                 ARRAY_SUMS_CHALLENGE,
                 PROPER_BRACKETS_CHALLENGE,
-                FACTORIALS_CHALLENGE
+                FACTORIALS_CHALLENGE,
+                FIBONACCI_CHALLENGE,
+                MULTIPLES_CHALLENGE
             ]
         }
     ]

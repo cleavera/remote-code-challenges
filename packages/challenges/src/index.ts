@@ -1,3 +1,4 @@
+export { FIBONACCI_CHALLENGE } from './constants/fibonacci.challenge';
 export { PROPER_BRACKETS_CHALLENGE } from './constants/proper-brackets.challenge';
 export { FACTORIALS_CHALLENGE } from './constants/factorials.challenge';
 export { ARRAY_SUMS_CHALLENGE } from './constants/array-sums.challenge';

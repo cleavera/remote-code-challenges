@@ -12,13 +12,14 @@ export class LeaderboardComponent {
     public performance: Array<RecordInterface> | null = null;
     public memory: Array<RecordInterface> | null = null;
     public characters: Array<RecordInterface> | null = null;
+    public code: string | null = null;
 
     @Input()
     public set challenge(challengeName: string) {
         this._submissionService.getLeaderboard(challengeName).subscribe((leaderBoard: LeaderboardInterface) => {
-            this.performance = leaderBoard.performance?.slice(0,3) ?? null;
-            this.memory = leaderBoard.memory?.slice(0,3) ?? null;
-            this.characters = leaderBoard.characters?.slice(0,3) ?? null;
+            this.performance = leaderBoard.performance?.slice(0, 3) ?? null;
+            this.memory = leaderBoard.memory?.slice(0, 3) ?? null;
+            this.characters = leaderBoard.characters?.slice(0, 3) ?? null;
         });
     }
 
@@ -26,5 +27,13 @@ export class LeaderboardComponent {
 
     constructor(submissionService: SubmissionService) {
         this._submissionService = submissionService;
+    }
+
+    public toggleCode(code: string): void {
+        if (this.code === code) {
+            this.code = null;
+        } else {
+            this.code = code;
+        }
     }
 }

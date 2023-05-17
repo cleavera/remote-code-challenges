@@ -26,7 +26,7 @@ export const PROPER_BRACKETS_CHALLENGE: ChallengeInterface = {
         output: 16796
     },
     performance: {
-        input: [10],
-        output: 16796
+        input: [6],
+        output: 132
     }
 }
